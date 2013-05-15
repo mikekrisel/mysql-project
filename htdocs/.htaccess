@@ -1,0 +1,6 @@
+# This Directive will make Apache look first
+# for "index_good.html" before looking for "index.html"
+DirectoryIndex index.php
+
+RewriteEngine on
+RewriteRule ^movie/([A-Za-z0-9-]+)/?$	index.php?movie=$1

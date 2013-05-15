@@ -1,0 +1,23 @@
+{
+    "name": "vendor/assignment-02",
+    "description": "autoloading mysqli",
+    "require": {
+				"phpunit/phpunit": "3.7.19",
+				"intervention/image": "1.3.8"
+
+    },
+    "authors": [
+        {
+            "name": "Mike Krisel",
+            "email": "michaelkrisel@gmail.com"
+        }
+    ],
+	"autoload": {
+        "classmap": [{
+            "controller": "src/controller/",
+            "model": "src/model/",
+            "view": "src/view/"
+        }]
+    },
+    "minimum-stability": "dev"
+}
