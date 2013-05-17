@@ -1,12 +1,15 @@
 <?php
 	
 	$template = new template\Template();
-	echo $template->showHead($movie->title);
+	$template->showHead($movie->title);
 	
-	echo 'Title:' . $movie->title . '<br/>';
-	echo 'Author:' . $movie->author . '<br/>';
-	echo 'Description:' . $movie->description . '<br/>';
+	$content  = '<img src="/images/shawshank-redemption.jpg" width="200" align="left" />';
+	$content .= "\t\tTitle:" . $movie->title . "<br/>\n";
+	$content .= "\t\tAuthor:" . $movie->author . "<br/>\n";
+	$content .= "\t\tDescription:" . $movie->description . "<br/>";
 	
-	echo $template->showFooter();
+	$template->showBodyTwoThird($content);
+	
+	$template->showFooter();
 
 ?>
