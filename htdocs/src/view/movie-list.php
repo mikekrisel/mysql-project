@@ -1,15 +1,15 @@
 <?php 
 	
 	$template = new template\Template();
-	echo $template->showHead("MySQL Project");
+	$template->showHead("My Movies");
 	
-	echo "<table>";
+	$content = "";
 	foreach ($movies as $title => $movie)
 	{
-		echo '<tr><td><a href="movie/'.$movie->title.'/">'.$movie->title.'</a></td><td>'.$movie->author.'</td><td>'.$movie->description.'</td></tr>';
+		$content .= '<a href="/'.$_SESSION['username'].'/movie/'.$movie->title.'/">'.$movie->title.'</a></td><td>'.$movie->author.'</td><td>'.$movie->description.'<br />';
 	}
-	echo "</table>";
 	
-	echo $template->showFooter();
+	$template->showBodyThird($content);
+	$template->showFooter();
 
 ?>

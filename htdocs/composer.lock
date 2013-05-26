@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "34e0c43e41e8dea299105f8016878df7",
+    "hash": "1a48b375f6bd73617c2884b4a150964a",
     "packages": [
         {
             "name": "illuminate/support",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "ef3f48e6c9bc5408315e5fff344ca61e901aebb5"
+                "reference": "e09f68ae78aab398fd3c8e8f814df89b03c2a817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/ef3f48e6c9bc5408315e5fff344ca61e901aebb5",
-                "reference": "ef3f48e6c9bc5408315e5fff344ca61e901aebb5",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/e09f68ae78aab398fd3c8e8f814df89b03c2a817",
+                "reference": "e09f68ae78aab398fd3c8e8f814df89b03c2a817",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Various utilities and support functions.",
-            "time": "2013-05-14 04:26:13"
+            "time": "2013-05-19 03:05:01"
         },
         {
             "name": "intervention/image",
@@ -106,12 +106,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d1113ca09a060fac85414b4d03982c34de803cd7"
+                "reference": "1.2.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d1113ca09a060fac85414b4d03982c34de803cd7",
-                "reference": "d1113ca09a060fac85414b4d03982c34de803cd7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1.2.11",
+                "reference": "1.2.11",
                 "shasum": ""
             },
             "require": {
@@ -119,6 +119,9 @@
                 "phpunit/php-file-iterator": ">=1.3.0@stable",
                 "phpunit/php-text-template": ">=1.1.1@stable",
                 "phpunit/php-token-stream": ">=1.1.3@stable"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
                 "ext-dom": "*",
@@ -151,7 +154,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-05-11 06:28:55"
+            "time": "2013-05-23 18:23:24"
         },
         {
             "name": "phpunit/php-file-iterator",

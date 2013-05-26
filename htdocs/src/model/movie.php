@@ -5,12 +5,13 @@
  **/
 namespace movie;
 
-class Movie {
+class Movie
+{
 	public $title;
 	public $author;
 	public $description;
 	
-	public function __construct($title, $author, $description)  
+	public function __construct ($title, $author, $description)  
     {  
       $this->title = $title;
 	    $this->author = $author;

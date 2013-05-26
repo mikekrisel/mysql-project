@@ -348,8 +348,11 @@ return array(
     'PHP_Token_WHITESPACE' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
+    'account\\Account' => $baseDir . '/src/model/account.php',
     'controller\\Controller' => $baseDir . '/src/controller/controller.php',
-    'model\\Model' => $baseDir . '/src/model/model.php',
+    'db\\mysqli' => $baseDir . '/src/db/mysqli.php',
+    'model_account\\Model' => $baseDir . '/src/model/model-account.php',
+    'model_movie\\Model' => $baseDir . '/src/model/model-movie.php',
     'movie\\Movie' => $baseDir . '/src/model/movie.php',
     'template\\Template' => $baseDir . '/src/view/template.php',
 );

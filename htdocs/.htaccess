@@ -3,5 +3,7 @@
 DirectoryIndex index.php
 
 RewriteEngine on
-RewriteRule ^movie-list/?$	index.php?action=list
-RewriteRule ^movie/([A-Za-z0-9-]+)/?$	index.php?action=movie&movie=$1
+RewriteRule ^logout/?$	index.php?action=logout
+RewriteRule ^([A-Za-z0-9-]+)/?$	index.php?user=$1&action=main
+RewriteRule ^([A-Za-z0-9-]+)/movie-list/?$	index.php?user=$1&action=list
+RewriteRule ^([A-Za-z0-9-]+)/movie/([A-Za-z0-9-]+)/?$	index.php?user=$1&action=movie&movie=$2

@@ -15,6 +15,7 @@
 	"autoload": {
         "classmap": [{
             "controller": "src/controller/",
+            "db": "src/db/",
             "model": "src/model/",
             "view": "src/view/"
         }]

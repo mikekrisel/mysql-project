@@ -9,7 +9,7 @@ class Template {
 	public $title;
 	public $content;
 	
-	public function showHead($title) {
+	public function showHead($title, $menu=true) {
 		$this->title = $title;
 		$html = '<!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -29,7 +29,9 @@ class Template {
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="/movie-list/">My Movies</a></li>
+				'.($menu == false ? '' : '
+        <li><a href="/'.$_SESSION['username'].'/movie-list/">My Movies</a></li>
+        <li><a href="/logout/">Log Out</a></li>').'
       </ul>
     </nav>
     <div class="clear"></div>
@@ -62,8 +64,7 @@ class Template {
 	<div id="container">
 		<section class="last clear">
 			<div class="three_third">
-				<h2>'.$this->title.'</h2>
-				<p>'.$this->content.'</p>
+				'.$this->content.'
 			</div>
 		</section>
 	</div>
