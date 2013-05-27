@@ -8,22 +8,55 @@ use movie;
 
 class Model
 {
-	public function getMovieList ()
+
+	/**
+   * ID
+   * @var string
+   **/
+	public $ID;
+	
+	/**
+   * title
+   * @var string
+   **/
+	public $movie;
+	
+	/**
+   * db
+   * @var string
+   **/
+	public $db;
+	
+	public function getMovieList ($db, $ID)
 	{
-		// here goes some hardcoded values to simulate the database
-		return array(
-			"Jungle-Movie" => new movie\Movie("Jungle-Movie", "R. Kipling", "A classic movie."),
-			"Moonwalker" => new movie\Movie("Moonwalker", "J. Walker", ""),
-			"PHP-for-Dummies" => new movie\Movie("PHP-for-Dummies", "Some Smart Guy", "")
-		);
+		$this->db = $db;
+		$this->ID = $ID;
+		// using the all_account_movies view
+		$query = $this->db->query("SELECT
+		* 
+		FROM all_account_movies 
+		WHERE AccountID = 1;");
+		$result = $query;
+		$movies = [];
+		foreach ($result as $key => $values) {
+			$n = array("'", "\"", "_", ",", " ", ".", "!", ":", "#", "*");
+			$r = array("", "", "", "", "-", "", "", "", "", "");
+			$URL = str_replace($n, $r, $values['Title']);
+			$movies[$URL] = new movie\Movie($URL, $values['Title'], $values['Description'], $values['MovieYear']);
+		}
+		return $movies;
+		
 	}
 
-	public function getMovie ($title)
+	public function getMovie ($db, $ID, $movie)
 	{
+		$this->db = $db;
+		$this->ID = $ID;
+		$this->movie = $movie;
 		// we use the previous function to get all the movies and then we return the requested one.
 		// in a real life scenario this will be done through a db select command
-		$allMovies = $this->getMovieList();
-		return $allMovies[$title];
+		$allMovies = $this->getMovieList($this->db, $this->ID);
+		return $allMovies[$this->movie];
 	}
 }
 

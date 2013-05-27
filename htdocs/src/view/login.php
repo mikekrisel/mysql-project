@@ -4,24 +4,32 @@
 	$template->showHead("MySQL Project", false);
 	
 	$content = "";
+	$specialCSS = '<style tpye="text/css">#showform{display:block;}</style>';
 	$form = '<form name="login" method="POST">
-	<label>User Name</label><input type="text" name="username" /><br />
+	<label>User Name</label><input type="text" name="username" value="'.(isset($_POST['username']) ? $_POST['username'] : "").'" /><br />
 	<label>Password</label><input type="password" name="password" /><br />
 	<input type="submit" value="submit" />
 </form>
 <br />
-<a href="JavaScript:void(0);">Get a Username</a>
+<a href="JavaScript:void(0);" id="show">Create an Account &raquo;</a>
 <div id="showform">
-	<form name="create" method="POST">
-		<label>User Name</label><input type="text" name="setusername" /><br />
-		<label>Password</label><input type="password" name="password" /><br />
-		<label>First Name</label><input type="text" name="firstname" /><br />
-		<label>Last Name</label><input type="text" name="lastname" /><br />
-		<label>Email</label><input type="text" name="email" /><br />
-		<label>About</label><textarea name="about"></textarea><br />
+	<form id="myForm" name="create" method="POST">
+		<div><label>User Name</label><input type="text" class="required" name="setusername" value="'.(isset($_POST['setusername']) ? $_POST['setusername'] : "").'" /></div>
+		<div><label>Password</label><input type="password" class="required" name="password" /></div>
+		<div><label>First Name</label><input type="text" class="required" name="firstname" value="'.(isset($_POST['firstname']) ? $_POST['firstname'] : "").'" /></div>
+		<div><label>Last Name</label><input type="text" class="required" name="lastname" value="'.(isset($_POST['lastname']) ? $_POST['lastname'] : "").'" /></div>
+		<div><label>Email</label><input type="text" class="required email" name="email" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" /></div>
+		<div><label>Description</label><textarea name="description">'.(isset($_POST['description']) ? $_POST['description'] : "").'</textarea><br />
 		<input type="submit" value="submit" />
 	</form>
-</div>';
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(\'#show\').click(function() {
+			$(\'#showform\').toggle();
+		});
+	});
+</script>';
 	
 	if (isset($_POST['username'])) {
 		$userName = trim($_POST['username']);
@@ -48,30 +56,30 @@
 		}
 	} else if (isset($_POST['setusername'])) {
 		$userName = trim($_POST['setusername']);
-		if (!preg_match("([^A-Za-z0-9-_]+)", $userName)) {
+		if (!preg_match("([^A-Za-z0-9-_]+|^$)", $userName)) {
 			// trim and escape the string for insert
 			$firstName = $this->db->escape_string($_POST['firstname']);
 			$lastName = $this->db->escape_string($_POST['lastname']);
 			$email = $this->db->escape_string($_POST['email']);
 			$password = $this->db->escape_string($_POST['password']);
-			$about = $this->db->escape_string($_POST['about']);
+			$description = $this->db->escape_string($_POST['description']);
 			// using the add_account stored procedure
-			$insert = $this->db->query("call add_account('".$userName."', '".$firstName."', '".$lastName."', '".$email."', '".$password."', '".$about."', @error)");
-			$id = $insert[0];
+			$insert = $this->db->query("call add_account('".$userName."', '".$firstName."', '".$lastName."', '".$email."', '".$password."', '".$description."', @error)");
+			$ID = $insert[0]['ID'];
+			// check for errors
 			$query = $this->db->query("select @error");
 			$error = $query[0];
 			if ($error) {
 				foreach($error as $value) {
-					$content .= '<span class="error">&raquo; '.$value.'</span>'.$form;
+					$content .= '<span class="error">&raquo; '.$value.'</span>'.$specialCSS.$form;
 				}
 			} else {
-				$id = $insert[0];
-				$_SESSION['ID'] = $id;
+				$_SESSION['ID'] = $ID;
 				$_SESSION['username'] = $userName;
 				header('Location: /'.$_SESSION['username'].'/');
 			}
 		} else {
-			header('Location: /');
+					$content .= '<span class="error">&raquo; The User Name can only use letters (a-z), numbers, underscors and hyphens.</span>'.$specialCSS.$form;
 		}
 	} else {
 		$content = $form;

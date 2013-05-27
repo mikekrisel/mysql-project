@@ -17,6 +17,7 @@ class Template {
 <title>'.$this->title.'</title>
 <meta charset="iso-8859-1">
 <link rel="stylesheet" href="/styles/layout.css" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper row1">
@@ -31,6 +32,7 @@ class Template {
         <li><a href="#">About</a></li>
 				'.($menu == false ? '' : '
         <li><a href="/'.$_SESSION['username'].'/movie-list/">My Movies</a></li>
+        <li><a href="/'.$_SESSION['username'].'/add-movie/">Add Movies</a></li>
         <li><a href="/logout/">Log Out</a></li>').'
       </ul>
     </nav>
@@ -79,6 +81,7 @@ class Template {
     <div class="clear"></div>
   </footer>
 </div>
+<script src="/scripts/validate.js"></script>
 </body>
 </html>';
 		echo $html;

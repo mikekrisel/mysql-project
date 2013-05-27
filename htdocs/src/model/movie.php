@@ -7,15 +7,17 @@ namespace movie;
 
 class Movie
 {
+	public $URL;
 	public $title;
-	public $author;
 	public $description;
+	public $movieYear;
 	
-	public function __construct ($title, $author, $description)  
+	public function __construct ($URL, $title, $description, $movieYear)  
     {  
+      $this->URL = $URL;
       $this->title = $title;
-	    $this->author = $author;
 	    $this->description = $description;
+	    $this->movieYear = $movieYear;
     } 
 }
 

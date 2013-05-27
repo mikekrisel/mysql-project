@@ -4,9 +4,9 @@
 	$template->showHead($movie->title);
 	
 	$content  = '<img src="/images/shawshank-redemption.jpg" width="200" align="left" />';
-	$content .= "\t\tTitle:" . $movie->title . "<br/>\n";
-	$content .= "\t\tAuthor:" . $movie->author . "<br/>\n";
-	$content .= "\t\tDescription:" . $movie->description . "<br/>";
+	$content .= "Title: ".$movie->title."<br/>\n";
+	$content .= "Description: ".$movie->description."<br/>\n";
+	$content .= "Year Released: ".$movie->movieYear."<br/>";
 	
 	$template->showBodyTwoThird($content);
 	

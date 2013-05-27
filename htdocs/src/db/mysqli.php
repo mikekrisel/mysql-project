@@ -42,7 +42,7 @@ class mysqli {
 	
 	/**
    * values
-   * @var string
+   * @var array
    **/
 	protected $values;
 	
@@ -77,13 +77,16 @@ class mysqli {
    * query
 	 * query database with paramaters
 	 * @param string statement to run
+	 * @return values or results
    **/
 	public function query($statement) {
+		// run query
 		$this->result = $this->mysqli->query($statement);
 		$this->values = [];
+		// return values or result
 		if (is_object($this->result)) {
-			foreach($this->result as $key => $values) {
-				$this->values[$key] = $values;
+			foreach ($this->result as $key => $values) {
+				$this->values[] = $values;
 			}
 			return $this->values;
 		} else {
@@ -91,6 +94,43 @@ class mysqli {
 		}
 	}
 	
+	/**
+   * query
+	 * query database with paramaters
+	 * @param array statements
+	 * @return values or result
+   **/
+	public function transaction($statements) {
+		$this->result = [];
+		$this->values = [];
+		// set autocommit to off
+		$this->mysqli->autocommit(FALSE);
+		// run query
+		foreach ($statements as $key => $statement) {
+			$this->result[] = $this->mysqli->query($statement);
+		}
+		// commit transaction
+		$this->mysqli->commit();
+		// return values or result
+		foreach ($this->result as $key => $result) {
+			if (is_object($result)) {
+				foreach($result as $key => $values) {
+					$this->values[] = $values;
+				}
+			} else {
+				$this->values[] = $result;
+			}
+		}
+		return $this->values;
+		
+	}
+	
+	/**
+   * escape_string
+	 * takes in a string value and trims/escapes
+	 * @param string statement to trim/escape
+	 * @return string
+   **/
 	public function escape_string($string) {
 		return $this->mysqli->real_escape_string(trim($string));
 	}

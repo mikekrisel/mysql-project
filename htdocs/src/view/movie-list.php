@@ -6,7 +6,7 @@
 	$content = "";
 	foreach ($movies as $title => $movie)
 	{
-		$content .= '<a href="/'.$_SESSION['username'].'/movie/'.$movie->title.'/">'.$movie->title.'</a></td><td>'.$movie->author.'</td><td>'.$movie->description.'<br />';
+		$content .= '<a href="/'.$_SESSION['username'].'/movie/'.$movie->URL.'/">'.$movie->title.'</a></td><td>'.$movie->description.'</td><td>'.$movie->movieYear.'<br />';
 	}
 	
 	$template->showBodyThird($content);
