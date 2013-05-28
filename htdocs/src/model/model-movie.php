@@ -35,7 +35,7 @@ class Model
 		$query = $this->db->query("SELECT
 		* 
 		FROM all_account_movies 
-		WHERE AccountID = 1;");
+		WHERE AccountID = '".$this->ID."';");
 		$result = $query;
 		$movies = [];
 		foreach ($result as $key => $values) {

@@ -3,7 +3,7 @@
 	$template = new template\Template();
 	$template->showHead($movie->title);
 	
-	$content  = '<img class="movieimg" src="/images/users/'.$_SESSION['username'].'/'.$movie->image.'" width="200" />
+	$content  = ($movie->image == "" ? '' : '<img class="movieimg" src="/images/users/'.$_SESSION['username'].'/'.$movie->image.'" width="200" />').'
 		<div id="showmovie">
 			<div class="title">'.$movie->title.' ('.$movie->movieYear.')</div>
 			<div class="category">'.$movie->category.'</div>
