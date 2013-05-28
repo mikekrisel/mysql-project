@@ -16,6 +16,8 @@ class Template {
 <head>
 <title>'.$this->title.'</title>
 <meta charset="iso-8859-1">
+<link rel="stylesheet" href="/styles/table_jui.css" type="text/css">
+<link rel="stylesheet" href="/styles/jquery-ui-1.8.4.custom.css" type="text/css">
 <link rel="stylesheet" href="/styles/layout.css" type="text/css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
@@ -23,14 +25,14 @@ class Template {
 <div class="wrapper row1">
   <header id="header" class="clear">
     <hgroup>
-      <h1><a href="/">MySQL Project</a></h1>
+      <h1><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'] : '').'">MySQL Project</a></h1>
       <h2>A Movie Database</h2>
     </hgroup>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">About</a></li>
-				'.($menu == false ? '' : '
+        <li><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'] : '').'">Home</a></li>
+        <li><a href="/about">About</a></li>
+				'.($menu == false ||  !isset($_SESSION['username']) ? '' : '
         <li><a href="/'.$_SESSION['username'].'/movie-list/">My Movies</a></li>
         <li><a href="/'.$_SESSION['username'].'/add-movie/">Add Movies</a></li>
         <li><a href="/logout/">Log Out</a></li>').'
@@ -74,14 +76,14 @@ class Template {
 		echo $html;
 	}
 
-	public function showFooter() {
+	public function showFooter($script="") {
 		$html = '<div class="wrapper row3">
   <footer id="footer">
     <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
     <div class="clear"></div>
   </footer>
 </div>
-<script src="/scripts/validate.js"></script>
+<script src="/scripts/validate.js"></script>'.$script.'
 </body>
 </html>';
 		echo $html;

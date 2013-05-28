@@ -5,23 +5,27 @@
 	
 	$content = "";
 	$specialCSS = '<style tpye="text/css">#showform{display:block;}</style>';
-	$form = '<form name="login" method="POST">
-	<label>User Name</label><input type="text" name="username" value="'.(isset($_POST['username']) ? $_POST['username'] : "").'" /><br />
-	<label>Password</label><input type="password" name="password" /><br />
-	<input type="submit" value="submit" />
-</form>
+	$form = '<fieldset>
+		<form name="login" method="POST">
+			<label>User Name</label><input type="text" name="username" value="'.(isset($_POST['username']) ? $_POST['username'] : "").'" /><br />
+			<label>Password</label><input type="password" name="password" /><br />
+			<input type="submit" value="submit" />
+		</form>
+	</fieldset>
 <br />
 <a href="JavaScript:void(0);" id="show">Create an Account &raquo;</a>
 <div id="showform">
-	<form id="myForm" name="create" method="POST">
-		<div><label>User Name</label><input type="text" class="required" name="setusername" value="'.(isset($_POST['setusername']) ? $_POST['setusername'] : "").'" /></div>
-		<div><label>Password</label><input type="password" class="required" name="password" /></div>
-		<div><label>First Name</label><input type="text" class="required" name="firstname" value="'.(isset($_POST['firstname']) ? $_POST['firstname'] : "").'" /></div>
-		<div><label>Last Name</label><input type="text" class="required" name="lastname" value="'.(isset($_POST['lastname']) ? $_POST['lastname'] : "").'" /></div>
-		<div><label>Email</label><input type="text" class="required email" name="email" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" /></div>
-		<div><label>Description</label><textarea name="description">'.(isset($_POST['description']) ? $_POST['description'] : "").'</textarea><br />
-		<input type="submit" value="submit" />
-	</form>
+	<fieldset>
+		<form id="myForm" name="create" method="POST">
+			<div><label>User Name</label><input type="text" class="required" name="setusername" value="'.(isset($_POST['setusername']) ? $_POST['setusername'] : "").'" /></div>
+			<div><label>Password</label><input type="password" class="required" name="password" /></div>
+			<div><label>First Name</label><input type="text" class="required" name="firstname" value="'.(isset($_POST['firstname']) ? $_POST['firstname'] : "").'" /></div>
+			<div><label>Last Name</label><input type="text" class="required" name="lastname" value="'.(isset($_POST['lastname']) ? $_POST['lastname'] : "").'" /></div>
+			<div><label>Email</label><input type="text" class="required email" name="email" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" /></div>
+			<div><label>Description</label><textarea name="description">'.(isset($_POST['description']) ? $_POST['description'] : "").'</textarea><br />
+			<input type="submit" value="submit" />
+		</form>
+  </fieldset>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {

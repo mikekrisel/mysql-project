@@ -42,10 +42,9 @@ class Model
 			$n = array("'", "\"", "_", ",", " ", ".", "!", ":", "#", "*");
 			$r = array("", "", "", "", "-", "", "", "", "", "");
 			$URL = str_replace($n, $r, $values['Title']);
-			$movies[$URL] = new movie\Movie($URL, $values['Title'], $values['Description'], $values['MovieYear']);
+			$movies[$URL] = new movie\Movie($URL, $values['Title'], $values['Description'], $values['MovieYear'], $values['Category'], $values['Director'], $values['Writers'], $values['Stars'], $values['Cost'], $values['SoldPrice'], $values['Image'], $values['MovieAdded'], $values['MovieSold']);
 		}
 		return $movies;
-		
 	}
 
 	public function getMovie ($db, $ID, $movie)
