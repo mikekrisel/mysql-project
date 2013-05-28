@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "e09f68ae78aab398fd3c8e8f814df89b03c2a817"
+                "reference": "9e74c0b4eccc3f3edbcec18b4b95994c0554b0f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/e09f68ae78aab398fd3c8e8f814df89b03c2a817",
-                "reference": "e09f68ae78aab398fd3c8e8f814df89b03c2a817",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/9e74c0b4eccc3f3edbcec18b4b95994c0554b0f7",
+                "reference": "9e74c0b4eccc3f3edbcec18b4b95994c0554b0f7",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Various utilities and support functions.",
-            "time": "2013-05-19 03:05:01"
+            "time": "2013-05-27 19:37:41"
         },
         {
             "name": "intervention/image",
