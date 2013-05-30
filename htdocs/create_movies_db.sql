@@ -245,6 +245,6 @@ BEGIN
 		WHERE
 		MovieID = OLD.ID;
 
-	END
+END
 //
 delimiter ;
