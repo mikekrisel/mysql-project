@@ -142,7 +142,7 @@ CREATE FUNCTION totals_loss_gain(cost DECIMAL(9,2), sold_price DECIMAL(9,2))
 RETURNS DECIMAL(9,2) DETERMINISTIC
 BEGIN
 
-RETURN cost - sold_price;
+	RETURN cost - sold_price;
 
 END
 //
@@ -224,11 +224,13 @@ delimiter //
 CREATE TRIGGER before_delete_customer BEFORE DELETE ON accounts
 FOR EACH ROW
 BEGIN
-DELETE a, m FROM accounts_movies as a
-INNER JOIN movies as m
-WHERE
-a.AccountID = OLD.ID
-AND m.ID = a.MovieID;
+	
+	DELETE a, m FROM accounts_movies as a
+		INNER JOIN movies as m
+		WHERE
+		a.AccountID = OLD.ID
+		AND m.ID = a.MovieID;
+	
 END
 //
 delimiter ;
@@ -238,9 +240,11 @@ delimiter //
 CREATE TRIGGER before_delete_movies BEFORE DELETE ON movies
 FOR EACH ROW
 BEGIN
-DELETE FROM accounts_movies
-WHERE
-MovieID = OLD.ID;
-END
+
+	DELETE FROM accounts_movies
+		WHERE
+		MovieID = OLD.ID;
+
+	END
 //
 delimiter ;
