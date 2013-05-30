@@ -1,6 +1,5 @@
 /**
  * Mike Krisel
- * assignemtn 04
  * Insert statements, procedures, functions, cursors, views and triggers
  * @procedue add_account
  * @procedue get_account_movies
