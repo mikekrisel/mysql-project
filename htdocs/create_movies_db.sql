@@ -218,3 +218,29 @@ CREATE OR REPLACE
 		FROM accounts AS a
 		RIGHT JOIN accounts_movies AS am ON a.ID = am.AccountID
 		RIGHT JOIN movies AS m ON am.MovieID = m.ID;
+
+-- trigger to delete record linking movies with user
+delimiter //
+CREATE TRIGGER before_delete_customer BEFORE DELETE ON accounts
+FOR EACH ROW
+BEGIN
+DELETE a, m FROM accounts_movies as a
+INNER JOIN movies as m
+WHERE
+a.AccountID = OLD.ID
+AND m.ID = a.MovieID;
+END
+//
+delimiter ;
+
+-- trigger to delete record linking user with movie
+delimiter //
+CREATE TRIGGER before_delete_movies BEFORE DELETE ON movies
+FOR EACH ROW
+BEGIN
+DELETE FROM accounts_movies
+WHERE
+MovieID = OLD.ID;
+END
+//
+delimiter ;
