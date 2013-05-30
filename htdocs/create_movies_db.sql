@@ -7,6 +7,8 @@
  * @function with cursor category_list
  * @view all_movies
  * @view all_account_movies
+ * @trigger before_delete_customer
+ * @trigger before_delete_movies
  */
 
 -- create database Movies and insert test data
