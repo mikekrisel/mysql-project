@@ -7,7 +7,7 @@
 	$data = "";
 	foreach ($movies as $title => $movie)
 	{
-		$data .= '<tr>
+		$data .= '<tr >
 			<td><a href="/'.$_SESSION['username'].'/movie/'.$movie->URL.'/">'.$movie->title.'</a></td>
 			<td>'.$movie->movieYear.'</td>
 			<td>'.$movie->category.'</td>
@@ -15,7 +15,7 @@
 			<td>'.$movie->writers.'</td>
 			<td>'.$movie->stars.'</td>
 			<td>$'.$movie->cost.'</td>
-			<td>'.($movie->movieSold != NULL ? '$' : '').$movie->soldPrice.'</td>
+			<td class="delete_wrapper"><a href="JavaScript:void(0);" class="delete" onClick="deleteMovie('.$movie->ID.', this);" title="Delete '.$movie->title.'">X</a>'.($movie->movieSold != NULL ? '$' : '').$movie->soldPrice.'</td>
 		</tr>';
 	}
 	
@@ -53,12 +53,17 @@
 	
 	$script = '<script type="text/javascript" language="javascript" src="/scripts/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
+			var oTable = "";
 			$(document).ready(function() {
-				$(\'#movie\').dataTable( {
+				oTable = $(\'#movie\').dataTable( {
 					"bJQueryUI": true,
 					"sPaginationType": "full_numbers"
 				} );
 			} );
+			function deleteMovie(ID, obj) {
+				oTable.fnDeleteRow(oTable.fnGetPosition(obj.parentNode.parentNode));
+				$.post(\'/src/model/delete.php\', { movieID: ID });
+			};
 		</script>';
 	$template->showFooter($script);
 

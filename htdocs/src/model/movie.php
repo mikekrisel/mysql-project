@@ -7,6 +7,7 @@ namespace movie;
 
 class Movie
 {
+	public $ID;
 	public $URL;
 	public $title;
 	public $description;
@@ -21,8 +22,9 @@ class Movie
 	public $movieAdded;
 	public $movieSold;
 	
-	public function __construct ($URL, $title, $description, $movieYear, $category, $director, $writers, $stars, $cost, $soldPrice, $image, $movieAdded, $movieSold)  
+	public function __construct ($ID, $URL, $title, $description, $movieYear, $category, $director, $writers, $stars, $cost, $soldPrice, $image, $movieAdded, $movieSold)  
     {  
+      $this->ID = $ID;
       $this->URL = $URL;
       $this->title = $title;
 	    $this->description = $description;

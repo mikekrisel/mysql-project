@@ -202,8 +202,9 @@ CREATE OR REPLACE
 -- view to select all movies owned by a user
 CREATE OR REPLACE 
 	ALGORITHM = MERGE 
-	VIEW all_account_movies (AccountID, Title, Description, MovieYear, Category, Director, Writers, Stars, Cost, SoldPrice, Image, MovieAdded, MovieSold) AS 
+	VIEW all_account_movies (AccountID, ID, Title, Description, MovieYear, Category, Director, Writers, Stars, Cost, SoldPrice, Image, MovieAdded, MovieSold) AS 
 	SELECT a.ID,
+		m.ID,
 		m.Title,
 		m.Description,
 		m.MovieYear,
