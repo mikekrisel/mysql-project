@@ -3,7 +3,7 @@
 	$template = new template\Template();
 	$template->showHead("Add a Movie Title");
 	
-	$content = "";
+	$content = '<h2 class="fieldset">Add a Movie Title</h2>';
 	$status = "";
 	$error = "";
 	$form = '<fieldset>
@@ -15,6 +15,7 @@
 			<div><label>Writer(s)</label><input type="text" class="required" name="writers" value="'.(isset($_POST['writers']) ? $_POST['writers'] : "").'" /></div>
 			<div><label>Star(s)</label><input type="text" class="required" name="stars" value="'.(isset($_POST['stars']) ? $_POST['stars'] : "").'" /></div>
 			<div><label>Cost</label><input type="text" class="required" name="cost" value="'.(isset($_POST['cost']) ? $_POST['cost'] : "").'" /></div>
+			<div><label>Sold Price</label><input type="text" name="sold" value="'.(isset($_POST['sold']) ? $_POST['sold'] : "").'" /></div>
 			<div><label>Image</label><input type="file" name="image" value="'.(isset($_FILES['image']['name']) ? $_FILES['image']['name'] : "").'" /></div>
 			<div><label>Description</label><textarea name="description">'.(isset($_POST['description']) ? $_POST['description'] : "").'</textarea><br />
 			<input type="submit" value="submit" />
@@ -43,6 +44,17 @@
 			} else {
 				$error .= '<span class="error">&raquo; The Cost can only use numbers.</span><br />';
 			}
+			// enforce numbers
+			$sold = 'DEFAULT';
+			$date = 'DEFAULT';
+			if ($_POST['sold'] != "") {
+				if (!preg_match("([^0-9,.]+)", $_POST['sold'])) {
+					$sold = '\''.$this->db->escape_string($_POST['sold']).'\'';
+					$date = 'CURDATE()';
+				} else {
+					$error .= '<span class="error">&raquo; The Sold Price can only use numbers.</span><br />';
+				}
+			}
 			$image = $this->db->escape_string($_FILES['image']['name']);
 			
 			// check to see if the title already exists using stored procedure view
@@ -63,7 +75,7 @@
 				// using a transaction and commit
 				$statements = array (
 					"INSERT INTO movies VALUES 
-						(DEFAULT, '".$title."', '".$description."', '".$movieYear."', '".$category."', '".$director."', '".$writers."', '".$stars."', '".$cost."', DEFAULT, '".$image."', CURDATE(), DEFAULT);",
+						(DEFAULT, '".$title."', '".$description."', '".$movieYear."', '".$category."', '".$director."', '".$writers."', '".$stars."', '".$cost."', ".$sold.", '".$image."', CURDATE(), ".$date.");",
 					"INSERT INTO accounts_movies VALUES
 						(DEFAULT, '".$_SESSION['ID']."', LAST_INSERT_ID());"
 					);
@@ -83,13 +95,13 @@
 				} else {
 					$status .= '<span class="success">Movie "'.$titleDisplay.'" has been successfully added.</span><br />';
 				}
-				$content = $status.$form;
+				$content .= $status.$form;
 			}
 		} else {
 			$content .= '<span class="error">&raquo; The Title contains a bad character.</span>'.$form;
 		}
 	} else {
-		$content = $form;
+		$content .= $form;
 	}
 	
 	$template->showBodyThird($content);

@@ -83,6 +83,10 @@ class mysqli {
 		// run query
 		$this->result = $this->mysqli->query($statement);
 		$this->values = [];
+		// errors
+		if ($this->mysqli->errno) {
+			echo "Failed to make QUERY to MySQL: (" . $this->mysqli->errno . ") " . $this->mysqli->error;
+		}
 		// return values or result
 		if (is_object($this->result)) {
 			foreach ($this->result as $key => $values) {
@@ -111,6 +115,10 @@ class mysqli {
 		}
 		// commit transaction
 		$this->mysqli->commit();
+		// errors
+		if ($this->mysqli->errno) {
+			echo "Failed to make QUERY TRANSACTION to MySQL: (" . $this->mysqli->errno . ") " . $this->mysqli->error;
+		}
 		// return values or result
 		foreach ($this->result as $key => $result) {
 			if (is_object($result)) {

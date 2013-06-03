@@ -8,7 +8,7 @@
 			<p>'.$account->accountDescription.'</p>';
 		
 		// using the category_list() Function
-		$query = $this->db->query("SELECT category_list('".$_SESSION['ID']."') AS Categories");
+		$query = $this->db->query("SELECT category_list('".$_SESSION['ID']."') AS Categories;");
 		$result = $query[0];
 		$categories = explode(", ", $result['Categories']);
 		if (count($categories) > 1) {

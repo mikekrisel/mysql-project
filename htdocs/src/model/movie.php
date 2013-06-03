@@ -21,8 +21,9 @@ class Movie
 	public $image;
 	public $movieAdded;
 	public $movieSold;
+	public $NetGainLoss;
 	
-	public function __construct ($ID, $URL, $title, $description, $movieYear, $category, $director, $writers, $stars, $cost, $soldPrice, $image, $movieAdded, $movieSold)  
+	public function __construct ($ID, $URL, $title, $description, $movieYear, $category, $director, $writers, $stars, $cost, $soldPrice, $image, $movieAdded, $movieSold, $NetGainLoss)  
     {  
       $this->ID = $ID;
       $this->URL = $URL;
@@ -38,6 +39,7 @@ class Movie
 	    $this->image = $image;
 	    $this->movieAdded = $movieAdded;
 	    $this->movieSold = $movieSold;
+	    $this->NetGainLoss = $NetGainLoss;
     } 
 }
 

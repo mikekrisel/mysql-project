@@ -8,17 +8,20 @@
 	foreach ($movies as $title => $movie)
 	{
 		$data .= '<tr >
-			<td><a href="/'.$_SESSION['username'].'/movie/'.$movie->URL.'/">'.$movie->title.'</a></td>
+			<td><a href="/'.$_SESSION['username'].'/movie/'.$movie->URL.'/" title="View '.$movie->title.'">'.$movie->title.'</a></td>
 			<td>'.$movie->movieYear.'</td>
 			<td>'.$movie->category.'</td>
 			<td>'.$movie->director.'</td>
 			<td>'.$movie->writers.'</td>
 			<td>'.$movie->stars.'</td>
 			<td>$'.$movie->cost.'</td>
-			<td class="delete_wrapper"><a href="JavaScript:void(0);" class="delete" onClick="deleteMovie('.$movie->ID.', this);" title="Delete '.$movie->title.'">X</a>'.($movie->movieSold != NULL ? '$' : '').$movie->soldPrice.'</td>
+			<td>'.($movie->soldPrice != NULL ? '$'.$movie->soldPrice : '').'</td>
+			<td class="delete_wrapper"><a href="JavaScript:void(0);" class="delete" onClick="deleteMovie('.$movie->ID.', this);" title="Delete '.$movie->title.'">X</a>'.($movie->NetGainLoss != NULL ? ($movie->NetGainLoss <= 0 ? '<span class="red">$'.$movie->NetGainLoss.'</span>' : '$'.$movie->NetGainLoss) : '').'</td>
 		</tr>';
 	}
-	
+	function isPositive($number) {
+    return is_numeric($number) && ($number >= 0);
+}
 	$content .= '<table cellpadding="0" cellspacing="0" border="0" class="display" id="movie">
 	<thead>
 		<tr>
@@ -30,6 +33,7 @@
 			<th>Stars</th>
 			<th>Cost</th>
 			<th>Sold</th>
+			<th>Gain/Loss</th>
 		</tr>
 	</thead>
 	<tfoot>
@@ -42,6 +46,7 @@
 			<th>Stars</th>
 			<th>Cost</th>
 			<th>Sold</th>
+			<th>Gain/Loss</th>
 		</tr>
 	</tfoot>
 	<tbody>

@@ -3,7 +3,7 @@
 	$template = new template\Template();
 	$template->showHead("MySQL Project", false);
 	
-	$content = "";
+	$content = '<h2 class="fieldset">Login</h2>';
 	$specialCSS = '<style tpye="text/css">#showform{display:block;}</style>';
 	$form = '<fieldset>
 		<form name="login" method="POST">
@@ -45,7 +45,7 @@
 				COUNT(UserName) AS count 
 				FROM accounts 
 				WHERE UserName = '".$userName."' 
-				AND Password = SHA1(CONCAT('".$password."', salt))");
+				AND Password = SHA1(CONCAT('".$password."', salt));");
 			$result = $query[0];
 			if ($result['count'] == 1) {
 				$_SESSION['ID'] = $result['ID'];
@@ -53,10 +53,10 @@
 				header('Location: /'.$_SESSION['username'].'/');			
 			} else {
 			// show error message
-			$content = '<span class="error">&raquo; The User Name or Password you entered is incorrect.</span>'.$form;
+			$content = $content.'<span class="error">&raquo; The User Name or Password you entered is incorrect.</span>'.$form;
 			}
 		} else {
-			$content = '<span class="error">&raquo; The User Name or Password you entered is incorrect.</span>'.$form;
+			$content = $content.'<span class="error">&raquo; The User Name or Password you entered is incorrect.</span>'.$form;
 		}
 	} else if (isset($_POST['setusername'])) {
 		$userName = trim($_POST['setusername']);
@@ -68,10 +68,10 @@
 			$password = $this->db->escape_string($_POST['password']);
 			$description = $this->db->escape_string($_POST['description']);
 			// using the add_account stored procedure
-			$insert = $this->db->query("call add_account('".$userName."', '".$firstName."', '".$lastName."', '".$email."', '".$password."', '".$description."', @error)");
+			$insert = $this->db->query("call add_account('".$userName."', '".$firstName."', '".$lastName."', '".$email."', '".$password."', '".$description."', @error);");
 			$ID = $insert[0]['ID'];
 			// check for errors
-			$query = $this->db->query("select @error");
+			$query = $this->db->query("select @error;");
 			$error = $query[0];
 			if ($error) {
 				foreach($error as $value) {
@@ -86,7 +86,7 @@
 					$content .= '<span class="error">&raquo; The User Name can only use letters (a-z), numbers, underscors and hyphens.</span>'.$specialCSS.$form;
 		}
 	} else {
-		$content = $form;
+		$content .= $form;
 	}
 	
 	$template->showBodyThird($content);

@@ -35,7 +35,7 @@ class Template {
 				'.($menu == false ||  !isset($_SESSION['username']) ? '' : '
         <li><a href="/'.$_SESSION['username'].'/movie-list/">My Movies</a></li>
         <li><a href="/'.$_SESSION['username'].'/add-movie/">Add Movies</a></li>
-        <li><a href="/logout/">Log Out</a></li>').'
+        <li><a href="/'.$_SESSION['username'].'/modify-account/">'.$_SESSION['username'].'</a> | <a href="/logout/">Log Out</a></li>').'
       </ul>
     </nav>
     <div class="clear"></div>

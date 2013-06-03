@@ -50,6 +50,7 @@ nav ul{margin:0; padding:0; list-style:none;}
 
 h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:20px; font-weight:normal; font-style:normal; line-height:normal;}
 h2{font-size:2em;}
+h2.fieldset{margin-bottom:1em;}
 h3{font-size:1.8em;}
 h4{font-size:1.6em;}
 h5{font-size:1.4em;}
@@ -99,7 +100,7 @@ fieldset{padding: 20px 14px 10px; margin:0; border:1px solid #CCC;}
 form{}
 label{display:inline-block; vertical-align:top; width:150px;}
 input[type="text"], input[type="password"]{margin:0 0 10px;}
-input[type="submit"]{cursor:pointer; color:#C0BAB6; text-transform:uppercase; padding:5px 10px; margin:0 0 10px; background:#333333; border:1px solid #D6D6D6; border-radius:4px;}
+input[type="submit"]{cursor:pointer; color:#C0BAB6; text-transform:uppercase; padding:5px 10px; margin:10px 0; background:#333333; border:1px solid #D6D6D6; border-radius:4px;}
 #showform {padding:10px 0 0; display:none;}
 form div{position:relative;}
 form div .error{position:absolute; top:-2px; margin:0 0 0 5px;}
@@ -112,11 +113,18 @@ form{}
 #movie_wrapper{margin:1em 0;}
 #movie_wrapper label{display: inline; vertical-align: middle; width: 150px;}
 .delete_wrapper{position:relative;}
-#movie a.delete{font-family:Tahoma, Geneva, sans-serif; color:#FFF; position:absolute; bottom:0; right:0; padding:2px 3px 2px 5px; background:#FF0000; border-radius:9px 0 0 0;}
+#movie a.delete{font-family:Tahoma, Geneva, sans-serif; color:#FFF; position:absolute; bottom:0; right:0; padding:2px 3px 2px 5px; background:#FF0000; border-radius:9px 0 0 0; box-shadow:-1px -1px 2px #333;}
+div.title{font-size:2em;}
+div.category{font-size:1.5em;}
+div.description{margin:1em 10em 1em 0;}
+span.legend{font-weight:bold; display:inline-block; width:150px; margin:0 0 .5em;}
+span.value.price:before{content: "$";}
 
 /*----------------------------------------------Generics-------------------------------------*/
 
 .error{display:inline-block; color:#FFF; padding:5px 10px 5px 5px; margin:0 5px 10px 0; background:#FF0000; border-radius:4px;}
+.red{color:#FF0000;}
+.delete[type="submit"]{color:#FFF; background:#FF0000;}
 .success{display:inline-block; color:#FFF; padding:5px 10px 5px 5px; margin:0 5px 10px 0; background:#9cff00; border-radius:4px;}
 .success a{color:#000; background:none;}
-.badge{color:#fff; padding:5px; margin:5px 5px 7px 0; background:#333333; border-radius:4px;}
+.badge{color:#FFF; padding:5px; margin:5px 5px 7px 0; background:#333333; border-radius:4px;}

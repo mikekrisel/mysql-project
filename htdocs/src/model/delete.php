@@ -9,7 +9,7 @@ if (isset($_POST['movieID'])) {
 		// using the before_delete_movies trigger
 		$query = $db->query("DELETE 
 			FROM movies
-			WHERE ID = '".$movieID."'");
+			WHERE ID = '".$movieID."';");
 	} else {
 		echo "There was a problem removiing the movie.";
 	}

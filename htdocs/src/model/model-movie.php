@@ -31,18 +31,31 @@ class Model
 	{
 		$this->db = $db;
 		$this->ID = $ID;
-		// using the all_account_movies view
-		$query = $this->db->query("SELECT
-		* 
-		FROM all_account_movies 
-		WHERE AccountID = '".$this->ID."';");
+		// using the all_account_movies view and totals_account_movies Function
+		$query = $this->db->query("SELECT 
+			ID,
+			Title,
+			Description,
+			MovieYear,
+			Category,
+			Director,
+			Writers,
+			Stars,
+			Cost, 
+			SoldPrice,
+			Image,
+			MovieAdded,
+			MovieSold,
+			totals_loss_gain(Cost, SoldPrice) AS NetGainLoss
+			FROM all_account_movies
+			WHERE AccountID = '".$this->ID."';");
 		$result = $query;
 		$movies = [];
 		foreach ($result as $key => $values) {
 			$n = array("'", "\"", "_", ",", " ", ".", "!", ":", "#", "*");
 			$r = array("", "", "", "", "-", "", "", "", "", "");
 			$URL = str_replace($n, $r, $values['Title']);
-			$movies[$URL] = new movie\Movie($values['ID'], $URL, $values['Title'], $values['Description'], $values['MovieYear'], $values['Category'], $values['Director'], $values['Writers'], $values['Stars'], $values['Cost'], $values['SoldPrice'], $values['Image'], $values['MovieAdded'], $values['MovieSold']);
+			$movies[$URL] = new movie\Movie($values['ID'], $URL, $values['Title'], $values['Description'], $values['MovieYear'], $values['Category'], $values['Director'], $values['Writers'], $values['Stars'], $values['Cost'], $values['SoldPrice'], $values['Image'], $values['MovieAdded'], $values['MovieSold'], $values['NetGainLoss']);
 		}
 		return $movies;
 	}

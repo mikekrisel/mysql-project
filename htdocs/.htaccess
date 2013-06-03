@@ -6,6 +6,7 @@ RewriteEngine on
 RewriteRule ^about/?$	index.php?action=about
 RewriteRule ^logout/?$	index.php?action=logout
 RewriteRule ^([A-Za-z0-9-]+)/?$	index.php?user=$1&action=main
+RewriteRule ^([A-Za-z0-9-]+)/modify-account/?$	index.php?user=$1&action=modify-account
 RewriteRule ^([A-Za-z0-9-]+)/add-movie/?$	index.php?user=$1&action=add-movie
 RewriteRule ^([A-Za-z0-9-]+)/movie-list/?$	index.php?user=$1&action=movie-list
 RewriteRule ^([A-Za-z0-9-]+)/movie/([A-Za-z0-9-]+)/?$	index.php?user=$1&action=movie&movie=$2

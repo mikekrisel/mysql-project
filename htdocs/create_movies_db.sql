@@ -28,7 +28,7 @@ CREATE TABLE movies (
 	, Director	VARCHAR(100) NOT NULL
 	, Writers	VARCHAR(250) NOT NULL
 	, Stars	VARCHAR(250) NOT NULL
-	, Cost DECIMAL(9,2) NOT NULL
+	, Cost DECIMAL(9,2) NULL
 	, SoldPrice DECIMAL(9,2) NULL
 	, Image	VARCHAR(100) NOT NULL
 	, MovieAdded DATE NOT NULL
@@ -39,7 +39,7 @@ INSERT INTO movies VALUES
 (1, 'Heat', 'A group of professional bank robbers start to feel the heat from police when they unknowingly leave a clue at their latest heist.', '1995', 'Action, Crime, Drama', 'Michael Mann', 'Michael Mann', 'Al Pacino, Robert De Niro, Val Kilmer', 9.99, 4.99, 'heat.jpg', '2013-04-22', '2013-05-06')
 , (2, 'The Departed', 'An undercover state cop who infiltrated a Mafia clan and a mole in the police force working for the same mob race to track down and identify each other before being exposed to the enemy, after both sides realize their outfit has a rat.', '2006', 'Crime, Thriller', 'Martin Scorsese', 'William Monahan, Alan Mak, Felix Chong', 'Leonardo DiCaprio, Matt Damon, Jack Nicholson', 11.99, null, 'departed.jpg', '2013-04-22', null)
 , (3, 'Rashomon', 'A heinous crime and its aftermath are recalled from differing points of view.', '1950', 'Crime, Drama', 'Akira Kurosawa', 'Ryunosuke Akutagawa, Akira Kurosawa, Shinobu Hashimoto', 'Toshiro Mifune, Machiko Kyo, Masayuki Mori', 5.99, 7.99, '', '2013-04-22', '2013-05-06')
-, (4, 'The Big Lebowski', '"Dude" Lebowski, mistaken for a millionaire Lebowski, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.', '1998', 'Comedy, Crime', 'Joel Coen', 'Ethan Coen, Joel Coen', 'Jeff Bridges, John Goodman, Julianne Moore', 8.99, null, 'the-big-lebowski.jpg', '2013-05-11', null)
+, (4, 'The Big Lebowski', '"Dude" Lebowski, mistaken for a millionaire Lebowski, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.', '1998', 'Comedy, Crime', 'Joel Coen', 'Ethan Coen, Joel Coen', 'Jeff Bridges, John Goodman, Julianne Moore', 8.99, 11, 'the-big-lebowski.jpg', '2013-05-11', '2013-06-02')
 , (5, 'Heat', 'A successful career criminal considers getting out of the business after one last score, while an obsessive cop desperately tries to put him behind bars in this intelligent thriller.', '1995', 'Crime, Action, Drama', 'Michael Mann', 'Michael Mann', 'Al Pacino, Robert De Niro, Val Kilmer', 10.99, null, 'heat.jpg', '2013-05-20', null);
 
 CREATE TABLE accounts_movies (
@@ -70,8 +70,8 @@ CREATE TABLE accounts (
 	, INDEX (UserName, Password)
 );
 INSERT INTO accounts VALUES
-(1, 'mkrisel', 'Mike', 'Krisel', 'michaelkrisel@gmail.com', SHA1('mymovies!60'), 60, 'Mike Krisel\'s collection of movies', '2013-04-22')
-, (2, 'dpalermo', 'David', 'Palermo', 'davidpalermo59@hotmail.com', SHA1('password40'), 40, 'David Palermo\'s collection of movies', '2013-04-22');
+(1, 'mkrisel', 'Mike', 'Krisel', 'michaelkrisel@gmail.com', SHA1('mymovies!60'), 60, 'Mike Krisel\'s collection of movies.', '2013-04-22')
+, (2, 'dpalermo', 'David', 'Palermo', 'davidpalermo59@hotmail.com', SHA1('password40'), 40, 'David Palermo\'s collection of movies.', '2013-04-22');
 
 -- End of insert statements section and Start of procedures, functions, cursors, views and triggers section
 
@@ -142,9 +142,7 @@ delimiter //
 CREATE FUNCTION totals_loss_gain(cost DECIMAL(9,2), sold_price DECIMAL(9,2))
 RETURNS DECIMAL(9,2) DETERMINISTIC
 BEGIN
-
-	RETURN cost - sold_price;
-
+	RETURN sold_price - cost;
 END
 //
 delimiter ;
@@ -227,7 +225,7 @@ CREATE TRIGGER before_delete_customer BEFORE DELETE ON accounts
 FOR EACH ROW
 BEGIN
 	
-	DELETE a, m FROM accounts_movies as a
+	DELETE a FROM accounts_movies as a
 		INNER JOIN movies as m
 		WHERE
 		a.AccountID = OLD.ID

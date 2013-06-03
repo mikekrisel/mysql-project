@@ -37,7 +37,7 @@ class Model
 			AccountDescription		
 			FROM accounts
 			WHERE ID = '".$this->ID."' 
-			AND UserName = '".$this->userName."'");
+			AND UserName = '".$this->userName."';");
 		$result = $query[0];
 		$account = new account\Account($this->ID, $this->userName, $result['FirstName'], $result['LastName'], $result['Email'], $result['AccountDescription']);
 		return $account;
