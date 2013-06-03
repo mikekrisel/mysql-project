@@ -108,7 +108,7 @@ form div .error{position:absolute; top:-2px; margin:0 0 0 5px;}
 /*----------------------------------------------Movie-------------------------------------*/
 
 form{}
-.movieimg{float:left; margin:0 20px 20px 0;}
+.movieimg{float:left; margin:0 20px 20px 0; box-shadow:-1px -1px 2px #333;}
 #movie a{color:#000; background:none;}
 #movie_wrapper{margin:1em 0;}
 #movie_wrapper label{display: inline; vertical-align: middle; width: 150px;}
