@@ -25,13 +25,13 @@ class Template {
 <div class="wrapper row1">
   <header id="header" class="clear">
     <hgroup>
-      <h1><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'] : '').'">MySQL Project</a></h1>
+      <h1><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'].'/' : '').'">MySQL Project</a></h1>
       <h2>A Movie Database</h2>
     </hgroup>
     <nav>
       <ul>
-        <li><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'] : '').'">Home</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="/'.(isset($_SESSION['username']) ? $_SESSION['username'].'/' : '').'">Home</a></li>
+        <li><a href="/about/">About</a></li>
 				'.($menu == false ||  !isset($_SESSION['username']) ? '' : '
         <li><a href="/'.$_SESSION['username'].'/movie-list/">My Movies</a></li>
         <li><a href="/'.$_SESSION['username'].'/add-movie/">Add Movies</a></li>

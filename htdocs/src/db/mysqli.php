@@ -82,7 +82,7 @@ class mysqli {
 	public function query($statement) {
 		// run query
 		$this->result = $this->mysqli->query($statement);
-		$this->values = [];
+		$this->values = array();
 		// errors
 		if ($this->mysqli->errno) {
 			echo "Failed to make QUERY to MySQL: (" . $this->mysqli->errno . ") " . $this->mysqli->error;
@@ -105,8 +105,8 @@ class mysqli {
 	 * @return values or result
    **/
 	public function transaction($statements) {
-		$this->result = [];
-		$this->values = [];
+		$this->result = array();
+		$this->values = array();
 		// set autocommit to off
 		$this->mysqli->autocommit(FALSE);
 		// run query

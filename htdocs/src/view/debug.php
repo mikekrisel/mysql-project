@@ -57,7 +57,7 @@
 		"all_profiles" => "show profiles;",
 		"profile_unset" => "set profiling = 0;"
 	);
-	$profiles = [];
+	$profiles = array();
 	foreach ($statements as $key => $statement) {
 		$query = $this->db->query($statement);
 		$result = $query;

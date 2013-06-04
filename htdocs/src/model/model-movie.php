@@ -50,7 +50,7 @@ class Model
 			FROM all_account_movies
 			WHERE AccountID = '".$this->ID."';");
 		$result = $query;
-		$movies = [];
+		$movies = array();
 		foreach ($result as $key => $values) {
 			$n = array("'", "\"", "_", ",", " ", ".", "!", ":", "#", "*");
 			$r = array("", "", "", "", "-", "", "", "", "", "");

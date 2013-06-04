@@ -6,7 +6,7 @@
 	$content = '<h2 class="fieldset">Modify Account</h2>';
 	$formDelete = '<fieldset>
 		<form id="myForm" name="create" method="POST">
-			<p>You\'re about to delete your account. Check yes to confirm.</p>
+			<p>You\'re about to delete your account. Select <i>Yes</i> to confirm, or <i>No</i> to go back.</p>
 			<div><label>User Name</label><input type="hidden" name="ID" value="'.$account->ID.'" /><input type="text" name="setusername" value="'.(isset($_POST['setusername']) ? $_POST['setusername'] : $account->userName).'" readonly="readonly" /></div>
 			<div><label>Yes</label><input type="radio" name="confirm" value="yes" /></div>
 			<div><label>No</label><input type="radio" name="confirm" value="no" checked="checked" /></div>

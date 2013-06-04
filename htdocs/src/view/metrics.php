@@ -15,7 +15,7 @@
 	$statements = array (
 		"performance_metrics" => "SELECT * FROM information_schema.innodb_metrics;"
 	);
-	$metrics = [];
+	$metrics = array();
 	foreach ($statements as $key => $statement) {
 		$query = $this->db->query($statement);
 		$result = $query;

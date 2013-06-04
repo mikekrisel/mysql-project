@@ -8,8 +8,6 @@ use model_movie;
 use model_account;
 use db;
 use user;
-		
-session_start();
 
 class Controller
 {
