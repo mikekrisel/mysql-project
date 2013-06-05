@@ -37,10 +37,15 @@ CREATE TABLE movies (
 );
 INSERT INTO movies VALUES 
 (1, 'Heat', 'A group of professional bank robbers start to feel the heat from police when they unknowingly leave a clue at their latest heist.', '1995', 'Action, Crime, Drama', 'Michael Mann', 'Michael Mann', 'Al Pacino, Robert De Niro, Val Kilmer', 9.99, 4.99, 'heat.jpg', '2013-04-22', '2013-05-06')
-, (2, 'The Departed', 'An undercover state cop who infiltrated a Mafia clan and a mole in the police force working for the same mob race to track down and identify each other before being exposed to the enemy, after both sides realize their outfit has a rat.', '2006', 'Crime, Thriller', 'Martin Scorsese', 'William Monahan, Alan Mak, Felix Chong', 'Leonardo DiCaprio, Matt Damon, Jack Nicholson', 11.99, null, 'departed.jpg', '2013-04-22', null)
+, (2, 'The Departed', 'An undercover state cop who infiltrated a Mafia clan and a mole in the police force working for the same mob race to track down and identify each other before being exposed to the enemy, after both sides realize their outfit has a rat.', '2006', 'Crime, Thriller', 'Martin Scorsese', 'William Monahan, Alan Mak, Felix Chong', 'Leonardo DiCaprio, Matt Damon, Jack Nicholson', 11.99, NULL, 'departed.jpg', '2013-04-22', NULL)
 , (3, 'Rashomon', 'A heinous crime and its aftermath are recalled from differing points of view.', '1950', 'Crime, Drama', 'Akira Kurosawa', 'Ryunosuke Akutagawa, Akira Kurosawa, Shinobu Hashimoto', 'Toshiro Mifune, Machiko Kyo, Masayuki Mori', 5.99, 7.99, '', '2013-04-22', '2013-05-06')
 , (4, 'The Big Lebowski', '"Dude" Lebowski, mistaken for a millionaire Lebowski, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.', '1998', 'Comedy, Crime', 'Joel Coen', 'Ethan Coen, Joel Coen', 'Jeff Bridges, John Goodman, Julianne Moore', 8.99, 11, 'the-big-lebowski.jpg', '2013-05-11', '2013-06-02')
-, (5, 'Heat', 'A successful career criminal considers getting out of the business after one last score, while an obsessive cop desperately tries to put him behind bars in this intelligent thriller.', '1995', 'Crime, Action, Drama', 'Michael Mann', 'Michael Mann', 'Al Pacino, Robert De Niro, Val Kilmer', 10.99, null, 'heat.jpg', '2013-05-20', null);
+, (5, 'Heat', 'A successful career criminal considers getting out of the business after one last score, while an obsessive cop desperately tries to put him behind bars in this intelligent thriller.', '1995', 'Crime, Action, Drama', 'Michael Mann', 'Michael Mann', 'Al Pacino, Robert De Niro, Val Kilmer', 10.99, NULL, 'heat.jpg', '2013-05-20', NULL)
+, (6, 'Full Metal Jacket', 'A pragmatic U.S. Marine observes the dehumanizing effects the Vietnam War has on his fellow Marine recruits from their brutal boot camp training to the bloody street fighting set in 1968 in Hue, Vietnam.', '1987', 'Drama, War', 'Stanley Kubrick', 'Gustav Hasford, Stanley Kubrick', 'Matthew Modine, Adam Baldwin, Vincent D\'Onofrio', 8.99, NULL, 'full-metal-jacket.jpg', '2013-06-04', NULL)
+, (7, 'Blade Runner', 'Deckard, a blade runner, has to track down and terminate 4 replicants who hijacked a ship in space and have returned to Earth seeking their maker.', '1982', 'Drama, Sci-Fi, Thriller', 'Ridley Scott', 'Hampton Fancher, David Webb Peoples', 'Harrison Ford, Rutger Hauer, Sean Young', 7.99, NULL, 'blade-runner.jpg', '2013-06-04', NULL)
+, (8, 'Fear and Loathing in Las Vegas', 'An oddball journalist and his psychopathic lawyer travel to Las Vegas for a series of psychedelic escapades.', '1998', 'Adventure, Comedy', 'Terry Gilliam', 'Hunter S. Thompson, Terry Gilliam', 'Johnny Depp, Benicio Del Toro, Tobey Maguire', 10.99, NULL, 'fear-and-loathing-in-las-vegas.jpg', '2013-06-04', NULL)
+, (9, 'Out for Justice', 'Brooklyn cop Gino Felino is about to go outside and play catch with his son Tony when he receives a phone call alerting him that his best friend Bobby Lupo has been shot dead in broad daylight on 18th Avenue in front of his wife Laurie Lupo and his two kids by drug kingpin Richie Madano, who has been Gino and Bobby\'s enemy since childhood. As Gino is hunting Madano down, Gino discovers the motive behind Bobby\'s murder. This is when Gino\'s hunt for Madano leads to the showdown of a lifetime.', '1991', 'Action, Thriller, Crime', 'John Flynn', 'David Lee Henry', 'Steven Seagal, William Forsythe, Jerry Orbach', 6.99, NULL, 'out-for-justice.jpg', '2013-06-04', NULL)
+,	(10, 'The Hustler', 'An up-and-coming pool player plays a long-time champion in a single high-stakes match.', '1961', 'Drama, Sport', 'Robert Rossen', 'Sydney Carroll, Robert Rossen', 'Paul Newman, Jackie Gleason, Piper Laurie', 5.99, NULL, 'the-hustler.jpg', '2013-06-04', NULL);
 
 CREATE TABLE accounts_movies (
 	ID INT NOT NULL	AUTO_INCREMENT
@@ -54,7 +59,12 @@ INSERT INTO accounts_movies VALUES
 , (2, 1, 2)
 , (3, 2, 3)
 , (4, 1, 4)
-, (5, 2, 5);
+, (5, 2, 5)
+,	(6, 1, 6)
+,	(7, 1, 7)
+, (8, 1, 8)
+,	(9, 1, 9)
+,	(10, 1, 10);
 
 CREATE TABLE accounts (
 	ID INT NOT NULL AUTO_INCREMENT
