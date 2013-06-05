@@ -2,7 +2,7 @@
 
 /**
  * @namespace user
- **/
+ */
 namespace account;
 
 class Account

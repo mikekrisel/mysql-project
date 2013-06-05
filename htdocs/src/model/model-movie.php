@@ -2,7 +2,7 @@
 
 /**
  * @namespace model_movie
- **/
+ */
 namespace model_movie;
 use movie;
 
@@ -12,19 +12,19 @@ class Model
 	/**
    * ID
    * @var string
-   **/
+   */
 	public $ID;
 	
 	/**
    * title
    * @var string
-   **/
+   */
 	public $movie;
 	
 	/**
    * db
    * @var string
-   **/
+   */
 	public $db;
 	
 	public function getMovieList ($db, $ID)

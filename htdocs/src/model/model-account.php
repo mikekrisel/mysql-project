@@ -2,7 +2,7 @@
 
 /**
  * @namespace model_account
- **/
+ */
 namespace model_account;
 use account;
 
@@ -12,19 +12,19 @@ class Model
 	/**
    * ID
    * @var string
-   **/
+   */
 	public $ID;
 	
 	/**
    * userName
    * @var string
-   **/
+   */
 	public $userName;
 	
 	/**
    * db
    * @var string
-   **/
+   */
 	public $db;
 	
 	public function getAccountDetails ()

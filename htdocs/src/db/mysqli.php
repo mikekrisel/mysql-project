@@ -2,48 +2,48 @@
 
 /**
  * @namespace db
- **/
+ */
 namespace db;
 
 /**
  * mysqli connection class
- **/
+ */
 class mysqli {
 	
 	/**
    * hostname
    * @var string
-   **/
+   */
 	private $hostname;
 	
 	/**
    * username
    * @var string
-   **/
+   */
 	private $username;
 	
 	/**
    * password
    * @var string
-   **/
+   */
 	private $password;
 	
 	/**
    * database
    * @var string
-   **/
+   */
 	private $database;
 	
 	/**
    * result
    * @var string
-   **/
+   */
 	protected $result;
 	
 	/**
    * values
    * @var array
-   **/
+   */
 	protected $values;
 	
 	/**
@@ -53,7 +53,7 @@ class mysqli {
 	 * @param string username
 	 * @param string password
 	 * @param string database
-   **/
+   */
 	public function __construct($hostname, $username, $password, $database) {
 		$this->hostname = $hostname;
 		$this->username = $username;
@@ -68,7 +68,7 @@ class mysqli {
 	/**
    * __destruct
 	 * close open database connection
-   **/
+   */
 	public function __destruct() {
 		mysqli_close($this->mysqli);
 	}
@@ -78,7 +78,7 @@ class mysqli {
 	 * query database with paramaters
 	 * @param string statement to run
 	 * @return values or results
-   **/
+   */
 	public function query($statement) {
 		// run query
 		$this->result = $this->mysqli->query($statement);
@@ -103,7 +103,7 @@ class mysqli {
 	 * query database with paramaters
 	 * @param array statements
 	 * @return values or result
-   **/
+   */
 	public function transaction($statements) {
 		$this->result = array();
 		$this->values = array();
@@ -138,9 +138,28 @@ class mysqli {
 	 * takes in a string value and trims/escapes
 	 * @param string statement to trim/escape
 	 * @return string
-   **/
+   */
 	public function escape_string($string) {
 		return $this->mysqli->real_escape_string(trim($string));
+	}
+	
+	public function prepare($statement) {
+		/* bind parameters for markers example is: "SELECT District FROM City WHERE Name=?"*/
+		$stmt->bind_param("s", $city);
+
+		/* execute query */
+		$stmt->execute();
+
+		/* bind result variables */
+		$stmt->bind_result($district);
+
+		/* fetch value */
+		$stmt->fetch();
+
+		return array("%s is in district %s\n", $city, $district);
+
+		/* close statement */
+		$stmt->close();
 	}
 	
 }

@@ -2,7 +2,7 @@
 
 /**
  * @namespace controller
- **/
+ */
 namespace controller;
 use model_movie;
 use model_account;
@@ -15,28 +15,34 @@ class Controller
 	/**
    * model
    * @var string
-   **/
+   */
 	public $model_movie;
-	
+
 	/**
    * account
    * @var string
-   **/
+   */
 	public $model_account;
-	
+
 	/**
    * database connection
    * @var string
-   **/
+   */
 	public $db;
-	
-	public function __construct ()  
-    {  
-			$this->db = new db\mysqli('localhost', 'root', 'password', 'movies');	
-      $this->model_movie = new model_movie\Model();
-      $this->model_account = new model_account\Model();
 
-    } 
+	/**
+   * set up our database connection, movie and account models
+   */
+	public function __construct ()  
+	{
+		$this->db = new db\mysqli('localhost', 'root', 'password', 'movies');	
+		$this->model_movie = new model_movie\Model();
+		$this->model_account = new model_account\Model();
+	}
+
+	/**
+   * start routing requests
+   */
 	public function invoke ()
 	{
 		if (!isset($_SESSION['username'])) {
@@ -52,8 +58,10 @@ class Controller
 		else {
 			if (!isset($_GET['action'])) {
 				if (isset($_GET['debug']) && $_GET['debug'] == 1) {
+					// set action to debug
 					$action = "debug";
 				} else if (isset($_GET['metrics']) && $_GET['metrics'] == 1) {
+					// set action to metrics
 					$action = "metrics";
 				} else {
 					$action = "main";
@@ -63,12 +71,12 @@ class Controller
 			}
 			switch ($action) {
 				case "about":
-					// show the about content
+					// show the about content, and use the main page
 					include "src/view/about.php";
 					include "src/view/main.php";
 				break;
 				case "add-movie":
-					// add a movie
+					// shwo the add a movie page
 					include "src/view/movie-add.php";
 				break;
 				case "debug":
@@ -76,7 +84,7 @@ class Controller
 					include "src/view/debug.php";
 				break;
 				case "logout":
-					// kill the session
+					// logged out, so kill the session
 					session_destroy();
 					header('Location: /');
 				break;

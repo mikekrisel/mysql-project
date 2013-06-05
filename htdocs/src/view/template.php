@@ -2,7 +2,7 @@
 
 /**
  * @namespace template
- **/
+ */
 namespace template;
 
 class Template {

@@ -2,7 +2,7 @@
 
 /**
  * @namespace movie
- **/
+ */
 namespace movie;
 
 class Movie
