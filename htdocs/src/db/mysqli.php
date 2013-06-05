@@ -143,25 +143,6 @@ class mysqli {
 		return $this->mysqli->real_escape_string(trim($string));
 	}
 	
-	public function prepare($statement) {
-		/* bind parameters for markers example is: "SELECT District FROM City WHERE Name=?"*/
-		$stmt->bind_param("s", $city);
-
-		/* execute query */
-		$stmt->execute();
-
-		/* bind result variables */
-		$stmt->bind_result($district);
-
-		/* fetch value */
-		$stmt->fetch();
-
-		return array("%s is in district %s\n", $city, $district);
-
-		/* close statement */
-		$stmt->close();
-	}
-	
 }
 
 ?>
