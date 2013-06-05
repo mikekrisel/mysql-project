@@ -71,6 +71,7 @@
 				} else {
 					$password = "";
 				}
+				// using a update the database
 				$update = $this->db->query("UPDATE
 					accounts
 					SET
