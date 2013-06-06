@@ -60,7 +60,8 @@ INSERT INTO movies VALUES
 , (23, 'The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '1994', 'Crime, Drama', 'Frank Darabont', 'Stephen King, Frank Darabont', 'Tim Robbins, Morgan Freeman, Bob Gunton', 9.99, NULL, 'the-shawshank-redemption.jpg', '2013-06-05', NULL)
 , (24, 'Sin City', 'A film that explores the dark and miserable town, Basin City, and tells the story of three different people, all caught up in violent corruption.', '2005', 'Crime, Thriller', 'Frank Miller, Robert Rodriguez', 'Frank Miller', 'Jessica Alba, Clive Owen, Mickey Rourke', 7.68, NULL, 'sin-city.jpg', '2013-06-05', NULL)
 , (25, 'Apocalypse Now', 'During the U.S.-Viet Nam War, Captain Willard is sent on a dangerous mission into Cambodia to assassinate a renegade colonel who has set himself up as a god among a local tribe.', '1979', 'Drama, War', 'Francis Ford Coppola', 'John Milius, Francis Ford Coppola', 'Marlon Brando, Martin Sheen, Robert Duvall', 4.59, NULL, 'apocalypse-now.jpg', '2013-06-05', NULL)
-, (26, 'Casino Royale', 'Armed with a license to kill, Secret Agent James Bond sets out on his first mission as 007 and must defeat a weapons dealer in a high stakes game of poker at Casino Royale, but things are not what they seem.', '2006', 'Action, Crime, Thriller', 'Martin Campbell', 'Neal Purvis, Robert Wade', 'Daniel Craig, Eva Green, Judi Dench', 11.99, NULL, 'casino-royale.jpg', '2013-06-05', NULL);
+, (26, 'Casino Royale', 'Armed with a license to kill, Secret Agent James Bond sets out on his first mission as 007 and must defeat a weapons dealer in a high stakes game of poker at Casino Royale, but things are not what they seem.', '2006', 'Action, Crime, Thriller', 'Martin Campbell', 'Neal Purvis, Robert Wade', 'Daniel Craig, Eva Green, Judi Dench', 11.99, NULL, 'casino-royale.jpg', '2013-06-05', NULL)
+, (27, 'American History X', 'A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.', '1998', 'Crime, Drama', 'Tony Kaye', 'David McKenna', 'Edward Norton, Edward Furlong, Beverly D\'Angelo', 6.99, NULL, 'american-history-x.jpg', '2013-06-05', NULL);
 
 CREATE TABLE accounts_movies (
 	ID INT NOT NULL	AUTO_INCREMENT
@@ -94,7 +95,8 @@ INSERT INTO accounts_movies VALUES
 , (23, 1, 23)
 , (24, 1, 24)
 , (25, 1, 25)
-, (26, 1, 26);
+, (26, 1, 26)
+, (27, 1, 27);
 
 CREATE TABLE accounts (
 	ID INT NOT NULL AUTO_INCREMENT
