@@ -45,7 +45,22 @@ INSERT INTO movies VALUES
 , (7, 'Blade Runner', 'Deckard, a blade runner, has to track down and terminate 4 replicants who hijacked a ship in space and have returned to Earth seeking their maker.', '1982', 'Drama, Sci-Fi, Thriller', 'Ridley Scott', 'Hampton Fancher, David Webb Peoples', 'Harrison Ford, Rutger Hauer, Sean Young', 7.99, NULL, 'blade-runner.jpg', '2013-06-04', NULL)
 , (8, 'Fear and Loathing in Las Vegas', 'An oddball journalist and his psychopathic lawyer travel to Las Vegas for a series of psychedelic escapades.', '1998', 'Adventure, Comedy', 'Terry Gilliam', 'Hunter S. Thompson, Terry Gilliam', 'Johnny Depp, Benicio Del Toro, Tobey Maguire', 10.99, NULL, 'fear-and-loathing-in-las-vegas.jpg', '2013-06-04', NULL)
 , (9, 'Out for Justice', 'Brooklyn cop Gino Felino is about to go outside and play catch with his son Tony when he receives a phone call alerting him that his best friend Bobby Lupo has been shot dead in broad daylight on 18th Avenue in front of his wife Laurie Lupo and his two kids by drug kingpin Richie Madano, who has been Gino and Bobby\'s enemy since childhood. As Gino is hunting Madano down, Gino discovers the motive behind Bobby\'s murder. This is when Gino\'s hunt for Madano leads to the showdown of a lifetime.', '1991', 'Action, Thriller, Crime', 'John Flynn', 'David Lee Henry', 'Steven Seagal, William Forsythe, Jerry Orbach', 6.99, NULL, 'out-for-justice.jpg', '2013-06-04', NULL)
-,	(10, 'The Hustler', 'An up-and-coming pool player plays a long-time champion in a single high-stakes match.', '1961', 'Drama, Sport', 'Robert Rossen', 'Sydney Carroll, Robert Rossen', 'Paul Newman, Jackie Gleason, Piper Laurie', 5.99, NULL, 'the-hustler.jpg', '2013-06-04', NULL);
+,	(10, 'The Hustler', 'An up-and-coming pool player plays a long-time champion in a single high-stakes match.', '1961', 'Drama, Sport', 'Robert Rossen', 'Sydney Carroll, Robert Rossen', 'Paul Newman, Jackie Gleason, Piper Laurie', 5.99, NULL, 'the-hustler.jpg', '2013-06-04', NULL)
+, (11, 'Gran Torino', 'Disgruntled Korean War vet Walt Kowalski sets out to reform his neighbor, a young Hmong teenager, who tried to steal Kowalski\'s prized possession: his 1972 Gran Torino.', '2008', 'Drama', 'Clint Eastwood', 'Nick Schenk, Dave Johannson', 'Clint Eastwood, Christopher Carley, Bee Vang', 9.95, NULL, 'gran-torino.jpg', '2013-06-05', NULL)
+, (12, 'Inception', 'A skilled extractor is offered a chance to regain his old life as payment for a task considered to be impossible.', '2010', 'Action, Adventrue, Mystery', 'Christopher Nolan', 'Christopher Nolan', 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', 6.40, NULL, 'inception.jpg', '2013-06-05', NULL)
+, (13, 'Insomnia', 'Two Los Angeles homicide detectives are dispatched to a northern town where the sun doesn\'t set to investigate the methodical murder of a local teen.', '2002', 'Crime, Mystery, Thriller', 'Christopher Nolan', 'Hillary Seitz, Nikolaj Frobenius', 'Al Pacino, Martin Donovan, Hilary Swank', 5.70, NULL, 'insomnia.jpg', '2013-06-05', NULL)
+, (14, 'Reservoir Dogs', 'After a simple jewelery heist goes terribly wrong, the surviving criminals begin to suspect that one of them is a police informant.', '1992', 'Crime, Thriller', 'Quentin Tarantino', 'Quentin Tarantino, Roger Avary', 'Harvey Keitel, Tim Roth, Michael Madsen', 8.99, NULL, 'reservoir-dogs.jpg', '2013-06-05', NULL)
+, (16, 'Cool Hand Luke', 'A man refuses to conform to life in a rural prison.', '1967', 'Crime, Drama', 'Stuart Rosenberg', 'Donn Pearce, Frank Pierson', 'Paul Newman, George Kennedy, J.D. Cannon', 7.45, NULL, 'cool-hand-luke.jpg', '2013-06-05', NULL)
+,	(17, 'The Thing from Another World', 'Scientists and American Air Force officials fend off a blood-thirsty alien organism while at a remote arctic outpost.', '1951', 'Horror, Scir-Fi', 'Christian Nyby', 'Charles Lederer, John W. Campbell Jr.', 'Margaret Sheridan, Kenneth Tobey, Robert Cornthwaite', 3.60, NULL, 'the-thing-from-another-world.jpg', '2013-06-05', NULL)
+,	(18, 'Stand by Me', 'After the death of a friend, a writer recounts a boyhood journey to find the body of a missing boy.', '1986', 'Adventure, Drama', 'Rob Reiner', 'Stephen King, Raynold Gideon', 'Wil Wheaton, River Phoenix, Corey Feldman', 5.70, 6.80, 'stand-by-me.jpg', '2013-06-05', '2013-06-05')
+,	(19, 'Sneakers', 'Complex but lighthearted thriller about computers and cryptography, government and espionage, secrets and deception and betrayal.', '1992', 'Comedy, Crime, Drama', 'Phil Alden Robinson', 'Phil Alden Robinson, Lawrence Lasker', 'Jo Marr, Robert Redford, Sidney Poitier', 6.99, NULL, 'sneakers.jpg', '2013-06-05', NULL)
+,	(20, 'Wolf Creek', 'Stranded backpackers in remote Australia fall prey to a murderous bushman who offers to fix their car, then takes them captive.', '2005', 'Horror', 'Greg Mclean', 'Greg Mclean', 'John Jarratt, Cassandra Magrath, Kestie Morassi', 9.99, NULL, 'wolf-creek.jpg', '2013-06-05', NULL)
+, (21, 'Star Wars', 'Luke Skywalker, a spirited farm boy, joins rebel forces to save Princess Leia from the evil Darth Vader, and the galaxy from the Empire\'s planet-destroying Death Star.', '1977', 'Action, Adventure, Fantasy', 'George Lucas', 'George Lucas', 'Mark Hamill, Harrison Ford, Carrie Fisher', 7.99, NULL, 'star-wars.jpg', '2013-06-05', NULL)
+, (22, '1984', 'George Orwell\'s novel of a totalitarian future society in which a man whose daily work is rewriting history tries to rebel by falling in love.', '1984', 'Drama, Romance, Sci-Fi', 'Michael Radford', 'George Orwell, Michael Radford', 'John Hurt, Richard Burton, Suzanna Hamilton', 5.78, NULL, '1984.jpg', '2013-06-05', NULL)
+, (23, 'The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '1994', 'Crime, Drama', 'Frank Darabont', 'Stephen King, Frank Darabont', 'Tim Robbins, Morgan Freeman, Bob Gunton', 9.99, NULL, 'the-shawshank-redemption.jpg', '2013-06-05', NULL)
+, (24, 'Sin City', 'A film that explores the dark and miserable town, Basin City, and tells the story of three different people, all caught up in violent corruption.', '2005', 'Crime, Thriller', 'Frank Miller, Robert Rodriguez', 'Frank Miller', 'Jessica Alba, Clive Owen, Mickey Rourke', 7.68, NULL, 'sin-city.jpg', '2013-06-05', NULL)
+, (25, 'Apocalypse Now', 'During the U.S.-Viet Nam War, Captain Willard is sent on a dangerous mission into Cambodia to assassinate a renegade colonel who has set himself up as a god among a local tribe.', '1979', 'Drama, War', 'Francis Ford Coppola', 'John Milius, Francis Ford Coppola', 'Marlon Brando, Martin Sheen, Robert Duvall', 4.59, NULL, 'apocalypse-now.jpg', '2013-06-05', NULL)
+, (26, 'Casino Royale', 'Armed with a license to kill, Secret Agent James Bond sets out on his first mission as 007 and must defeat a weapons dealer in a high stakes game of poker at Casino Royale, but things are not what they seem.', '2006', 'Action, Crime, Thriller', 'Martin Campbell', 'Neal Purvis, Robert Wade', 'Daniel Craig, Eva Green, Judi Dench', 11.99, NULL, 'casino-royale.jpg', '2013-06-05', NULL);
 
 CREATE TABLE accounts_movies (
 	ID INT NOT NULL	AUTO_INCREMENT
@@ -64,7 +79,22 @@ INSERT INTO accounts_movies VALUES
 ,	(7, 1, 7)
 , (8, 1, 8)
 ,	(9, 1, 9)
-,	(10, 1, 10);
+,	(10, 1, 10)
+, (11, 1, 11)
+,	(12, 1, 12)
+,	(13, 1, 13)
+, (14, 1, 14)
+, (16, 1, 16)
+, (17, 1, 17)
+,	(18, 1, 18)
+,	(19, 1, 19)
+,	(20, 1, 20)
+, (21, 1, 21)
+, (22, 1, 22)
+, (23, 1, 23)
+, (24, 1, 24)
+, (25, 1, 25)
+, (26, 1, 26);
 
 CREATE TABLE accounts (
 	ID INT NOT NULL AUTO_INCREMENT
