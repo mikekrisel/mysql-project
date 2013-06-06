@@ -56,7 +56,7 @@
 				} 
 				if (isset($_POST['confirm']) && $_POST['confirm'] == "no") {
 					unset($_POST);
-					header('Location: /mkrisel/modify-account/');
+					header('Location: /'.$_SESSION['username'].'/modify-account/');
 				}
 			} else {
 				// trim and escape the string for update
