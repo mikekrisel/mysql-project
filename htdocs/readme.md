@@ -1,1 +1,4 @@
-MySQL Movie Database Project
+mysql-project
+=============
+
+uw-mysql final project
