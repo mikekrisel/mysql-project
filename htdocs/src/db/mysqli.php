@@ -89,8 +89,8 @@ class mysqli {
 		}
 		// return values or result
 		if (is_object($this->result)) {
-			foreach ($this->result as $key => $values) {
-				$this->values[] = $values;
+			while ($row = mysqli_fetch_array($this->result, MYSQLI_ASSOC)) {
+				$this->values[] = $row;
 			}
 			return $this->values;
 		} else {
@@ -122,8 +122,8 @@ class mysqli {
 		// return values or result
 		foreach ($this->result as $key => $result) {
 			if (is_object($result)) {
-				foreach($result as $key => $values) {
-					$this->values[] = $values;
+				while ($row = mysqli_fetch_array($this->result, MYSQLI_ASSOC)) {
+					$this->values[] = $row;
 				}
 			} else {
 				$this->values[] = $result;
