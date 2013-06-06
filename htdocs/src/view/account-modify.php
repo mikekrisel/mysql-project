@@ -10,6 +10,7 @@
 			<div><label>User Name</label><input type="hidden" name="ID" value="'.$account->ID.'" /><input type="text" name="setusername" value="'.(isset($_POST['setusername']) ? $_POST['setusername'] : $account->userName).'" readonly="readonly" /></div>
 			<div><label>Yes</label><input type="radio" name="confirm" value="yes" /></div>
 			<div><label>No</label><input type="radio" name="confirm" value="no" checked="checked" /></div>
+			<input type="submit" name="return" value="return" />
 			<input type="submit" name="delete" class="delete" value="delete" />
 		</form>
 	</fieldset>';
@@ -30,7 +31,7 @@
 		$userName = trim($_POST['setusername']);
 		if ($_SESSION['ID'] == $_POST['ID'] && $_SESSION['username'] == $userName) {
 			$ID = $this->db->escape_string($_POST['ID']);
-			if (isset($_POST['delete'])) {
+			if (isset($_POST['delete']) || isset($_POST['return'])) {
 				$content = '<h2 class="fieldset">Delete Account</h2>'.$formDelete;
 				if (isset($_POST['confirm']) && $_POST['confirm'] == "yes") {
 					// query users movies, to remove those records after having been unjoined from accounts and accounts_movies
